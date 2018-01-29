@@ -21,17 +21,18 @@ const WishListItem = t.model('WishListItem', {
 
 
 const WishList = t.model('WishList', {
-  items: t.optional(t.array(WishListItem), []),
-  totalPrice: t.optional(t.number, 0)
+  items: t.optional(t.array(WishListItem), [])
 }).actions(self => ({
   add(WishListItem) {
     self.items.push(WishListItem)
   }
 })).views(self => ({
   getTotalPrice() {
+    let totalPrice = 0
     self.items.map(item => {
-      self.totalPrice += item.price
+      totalPrice += item.price
     })
+    return totalPrice
   }
 }))
 
