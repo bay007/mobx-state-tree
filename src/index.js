@@ -23,7 +23,7 @@ const App = observer(class app extends Component {
 
   render() {
 
-    return <div><Hello/>{State.WishList.items.map(item => (<div key={item.name}><p >Nombre: {item.name}</p><p >Price: ${item.price}</p><img style={{ width: 20 }} src={item.image}></img><hr /></div>))}</div>
+    return <div><Hello totalPrice={State.WishList.getTotalPrice()} />{State.WishList.items.map(item => (<div key={item.name}><p >Nombre: {item.name}</p><p >Price: ${item.price}</p><img style={{ width: 20 }} src={item.image}></img><hr /></div>))}</div>
   }
 })
 
