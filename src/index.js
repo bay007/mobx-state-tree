@@ -17,7 +17,7 @@ const App = observer(class app extends Component {
     State.WishList.add({ name: 'lista_2.1', price: 1 })
     State.WishList.add({ name: 'lista_2.2', price: 2 })
     State.WishList.add({ name: 'lista_2.3', price: 3, image: 'https://image.jimcdn.com/app/cms/image/transf/none/path/s3d8a2bc7536f18c5/image/i79df4c739d868452/version/1482865057/image.png' })
-    State.WishList.items[0].set({ price: 142937440 })
+    //State.WishList.items[0].set({ price: 8 })
     State.WishList.items.map(item => { console.log(`Nombre: ${item.name}, precio $${item.price}`) })
   }
 
@@ -28,3 +28,8 @@ const App = observer(class app extends Component {
 })
 
 render(<App />, document.getElementById('root'));
+
+setInterval(() => {
+  let item = Math.floor((State.WishList.items.length) * Math.random());
+  State.WishList.items[item].set({ price: State.WishList.items[item].price + 10 * Math.round(Math.random()) })
+}, 500 + 3000 * Math.random())
