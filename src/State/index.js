@@ -27,7 +27,7 @@ const WishList = t.model('WishList', {
     self.items.push(WishListItem)
   }
 })).views(self => ({
-  getTotalPrice() {
+  get TotalPrice() {
     let totalPrice = 0
     self.items.map(item => {
       totalPrice += item.price
